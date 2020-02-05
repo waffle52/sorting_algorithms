@@ -1,4 +1,5 @@
 #include "sort.h"
+#include <stdio.h>
 
 /**
  * bubble_sort - Entry Point
@@ -10,6 +11,11 @@
 void bubble_sort(int *array, size_t size)
 {
 	size_t i, j;
+
+	if (array == NULL)
+	{
+		return;
+	}
 
 	for (i = 0; i < size - 1; i++)
 	{
