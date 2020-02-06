@@ -13,7 +13,7 @@ void quick_sort(int *array, size_t size)
 	if (array == NULL || size < 2)
 		return;
 
-	partition_controller(array, 0, size - 1);
+	partition_controller(array, 0, size - 1, size);
 }
 
 /**
@@ -24,15 +24,15 @@ void quick_sort(int *array, size_t size)
  * Description: calls function recursivly to sort data in unordered list)?
  */
 
-void partition_controller(int *array, int low, int high)
+void partition_controller(int *array, int low, int high, size_t size)
 {
 	int id = 0;
 
 	if (low < high)
 	{
-		id = partition(array, low, high);
-		partition_controller(array, low, id - 1);
-		partition_controller(array, id + 1, high);
+		id = partition(array, low, high, size);
+		partition_controller(array, low, id - 1, size);
+		partition_controller(array, id + 1, high, size);
 	}
 }
 
@@ -45,7 +45,7 @@ void partition_controller(int *array, int low, int high)
  * Return: area of array gone through
  */
 
-int partition(int *array, int low, int high)
+int partition(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high];
 	int i = (low - 1);
@@ -59,14 +59,14 @@ int partition(int *array, int low, int high)
 			if (array[j] != array[i])
 			{
 				swap(&array[i], &array[j]);
-				print_array(array, sizeof(array) + 2);
+				print_array(array, size);
 			}
 		}
 	}
 	if (array[i + 1] != array[high])
 	{
 		swap(&array[i + 1], &array[high]);
-		print_array(array, sizeof(array) + 2);
+		print_array(array, size);
 	}
 	return (i + 1);
 }
