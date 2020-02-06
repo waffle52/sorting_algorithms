@@ -10,7 +10,7 @@
 
 void quick_sort(int *array, size_t size)
 {
-	if (array == NULL)
+	if (array == NULL || size < 2)
 		return;
 
 	partition_controller(array, 0, size - 1);
