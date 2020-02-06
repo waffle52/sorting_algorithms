@@ -21,6 +21,7 @@ void quick_sort(int *array, size_t size)
  * @array: array of ints
  * @low: low index of array to sort
  * @high: high index of array sort
+ * @size: size of array
  * Description: calls function recursivly to sort data in unordered list)?
  */
 
@@ -41,6 +42,7 @@ void partition_controller(int *array, int low, int high, size_t size)
  * @array: array of unordered ints
  * @low: low index to go through
  * @high: high of index to go through
+ * @size: size of the array
  * Description: finds elements out of order and then calls function to swap
  * Return: area of array gone through
  */
